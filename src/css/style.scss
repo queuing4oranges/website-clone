@@ -1,0 +1,158 @@
+$green-button: #31be7c;
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #2e3035;
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif, Arial, Helvetica, sans-serif;
+}
+
+/*naming conventions: BEM
+B-block: stick-man
+E-element: stick-man__head
+M-modifier: stick-man__head-green
+*/
+
+/*header*/
+header {
+  margin: 0;
+  padding: 0;
+}
+.header__container {
+  //   background-image: url("/img/night-photo.jpg");
+  //   background-size: cover;
+
+  background-color: #171544;
+  margin: 0;
+  padding: 15px 5px;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  color: #ebebef;
+  box-shadow: 0px 6px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.header__logo {
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
+  font-size: 24px;
+  align-self: center;
+}
+
+.header__cont-left,
+.header__cont-right,
+.header__searchbar {
+  display: flex;
+  flex-direction: row;
+  margin: 0 5px;
+}
+
+.header__cont-left,
+.header__cont-right {
+  width: 30%;
+}
+
+.header__searchbar {
+  border-radius: 5px;
+  border: none;
+  width: 100%;
+  background-color: #454469;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 5px 10px;
+  height: 40px;
+  margin: 0 -15px;
+  &:focus {
+    outline: none;
+  }
+}
+
+.header__cont-searchbar {
+  width: 40%;
+}
+
+.header__cont-left {
+  float: left;
+  & p,
+  button,
+  span {
+    padding: 10px 10px;
+  }
+}
+.header__btn {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  background-color: $green-button;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  align-self: center;
+  width: 130px;
+  border: none;
+  font-size: 14px;
+}
+
+.fa-solid {
+  margin-right: 7px;
+}
+
+.header__cont-right {
+  justify-content: space-between;
+  & p,
+  button {
+    padding: 10px 10px;
+  }
+}
+
+.header__btn-adfree {
+  background-color: $green-button;
+  border-radius: 5px;
+  font-weight: 800;
+  color: white;
+  align-self: center;
+  width: 130px;
+  border: none;
+}
+
+.header__cont-right button {
+  text-align: center;
+  justify-content: center;
+}
+
+.header__signin {
+  align-self: center;
+}
+
+.purple {
+  background-color: #6432f9;
+}
+
+/*hero-banner*/
+.hero__container {
+  background-color: #171544;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.hero__title {
+  color: #aed8ea;
+  margin: 0 auto;
+  padding: 30px 0;
+}
