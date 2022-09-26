@@ -2,121 +2,121 @@ const tags = [
     {
         id: "1", 
         title: "Comic",
-        pic: "./images/brain.png",
-        posts: "2324", 
-        color: "#c2e28"
+        pic: "./images/autumn.jpg",
+        posts: "2324348 Posts", 
+        color: "#633875"
     },
     {
         id: "2", 
         title: "Funny",
-        pic: "./images/autumn.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        pic: "./images/papercat.png",
+        posts: "23243234 Posts", 
+        color: "#008261"
     },
     {
         id: "3", 
         title: "Otters",
         pic: "./images/couple.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "2324090 Posts", 
+        color: "#263BA7"
     },
     {
         id: "4", 
         title: "Space",
         pic: "./images/fashion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "232423 Posts", 
+        color: "#171544"
     },
     {
         id: "5", 
         title: "Dog",
         pic: "./images/onion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "278298 Posts", 
+        color: "#328D67"
     },
     {
         id: "6", 
         title: "Staff Picks",
         pic: "./images/autumn.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "2324 Posts", 
+        color: "#8472BD"
     },
     {
         id: "7", 
         title: "Rick And Morty",
-        pic: "./images/brain.png",
-        posts: "2324", 
-        color: "#c2e28"
+        pic: "./images/papercat.png",
+        posts: "234982 Posts", 
+        color: "#26606E"
     },
     {
         id: "8", 
         title: "Unmuted",
         pic: "./images/couple.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "232424 Posts", 
+        color: "#E47D57"
     },
     {
         id: "9", 
         title: "Cat",
         pic: "./images/fashion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "2324234 Posts", 
+        color: "#132D31"
     },
     {
         id: "10", 
         title: "Science And Tech",
         pic: "./images/onion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "232423 Posts", 
+        color: "#26606E"
     },
     {
         id: "11", 
         title: "Awesome",
         pic: "./images/autumn.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "2324 Posts", 
+        color: "#263BA7"
     },
     {
         id: "12", 
         title: "Gaming",
-        pic: "./images/brain.png",
-        posts: "2324", 
-        color: "#c2e28"
+        pic: "./images/papercat.png",
+        posts: "232409 Posts", 
+        color: "#df0e73"
     },
     {
         id: "13", 
         title: "Wholesome",
         pic: "./images/couple.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "232489797 Posts", 
+        color: "#4D549A"
     },
     {
         id: "14", 
         title: "Movies and TV",
         pic: "./images/fashion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "2324123 Posts", 
+        color: "#edab3e"
     },
     {
         id: "15", 
         title: "Current Events",
         pic: "./images/onion.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "232423 Posts", 
+        color: "#e07844"
     },
     {
         id: "16", 
         title: "Crab",
         pic: "./images/autumn.jpg",
-        posts: "2324", 
-        color: "#c2e28"
+        posts: "23243434 Posts", 
+        color: "#633875"
     },
     {
         id: "17", 
         title: "Uplifting",
-        pic: "./images/brain.png",
-        posts: "2324", 
-        color: "#c2e28"
+        pic: "./images/papercat.png",
+        posts: "2324234 Posts", 
+        color: "#d4005e"
     },
 
 
@@ -124,33 +124,30 @@ const tags = [
 
 tags.forEach((tag) => {
 
+let oneTag = document.querySelector(".one-tag");
+let cont = document.createElement("div");
+cont.classList.add("tag-cont")
+cont.style.backgroundColor = `${tag.color}`;
+oneTag.appendChild(cont)
 
-//upper half of single "tag" card
-let contTop = document.querySelector(".tags__cont-bottom");
-let topTag = document.createElement("div");
-topTag.classList.add("top__tag");
-contTop.appendChild(topTag);
+let image = document.createElement("img");
+    image.setAttribute("src", tag.pic);
+    image.classList.add("tag-pic");
+    cont.appendChild(image);
 
-let topElement = document.createElement("img");
-topElement.setAttribute("src", tag.pic);
-topElement.classList.add("tag-pic");
-contTop.appendChild(topElement);
+let tagTitle = document.createElement("h3");
+    tagTitle.classList.add("tag-title");
+    tagTitle.textContent=tag.title;
+    cont.appendChild(tagTitle);
 
-//lower half of single "tag" card
-let contBottom = document.querySelector(".tags__cont-bottom");
-let bottomTag = document.createElement("div");
-bottomTag.classList.add("bottom__tag");
-contBottom.appendChild(bottomTag);
-
-let bottomElement = document.createElement("h3");
-bottomElement.textContent=tag.title;
-bottomTag.appendChild(bottomElement);
-
-bottomElement = document.createElement("p");
-bottomElement.textContent=tag.posts;
-bottomTag.appendChild(bottomElement);
+let tagPosts = document.createElement("p")
+    tagPosts.classList.add("tag-text")
+    tagPosts.textContent=tag.posts;
+    cont.appendChild(tagPosts);
 
 })
+
+
 
 
 

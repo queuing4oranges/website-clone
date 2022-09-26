@@ -82,6 +82,14 @@ header {
 
 .header__cont-searchbar {
   width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-magnifying-glass {
+  position: relative;
+  left: -20px;
 }
 
 .header__cont-left {
@@ -144,7 +152,7 @@ header {
 /*hero-banner*/
 .hero__container {
   background-color: #171544;
-  height: 500px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -158,25 +166,67 @@ header {
 
 /*tags*/
 .tags__container {
-  border: solid 3px red;
-  width: 80%;
+  // border: solid 3px red;
+  width: 90%;
   overflow: hidden;
   color: #9190a6;
 }
 
 .tags__cont-top {
   display: flex;
-}
-
-.tags__cont-bottom {
-  display: flex;
-}
-
-.top__tag,
-.bottom__tag {
-  border: solid 2px red;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .tag-pic {
-  width: 100px;
+  height: 90px;
+  margin: 5px;
+  border-radius: 3px;
+}
+
+.tag-cont {
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tag-pic {
+  width: 100%;
+  margin: 0;
+}
+
+.tag-title {
+  color: white;
+  padding: 5px;
+  text-align: center;
+}
+
+.tag-text {
+  font-size: 14px;
+  font-weight: bold;
+  position: relative;
+  bottom: 5px;
+  margin: 0;
+  padding: 0;
+}
+
+.one-tag {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.tag-cont {
+  height: 200px;
+}
+
+// .one-tag:first-child {
+//   grid-area: 1 / 1 / 2 /2;
+// }
+
+.one-tag:nth .tag-title {
+  font-size: 14px;
 }
