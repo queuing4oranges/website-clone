@@ -122,7 +122,37 @@ const tags = [
 
 ]
 
-tags.forEach((tag) => {
+function showOneLine() {
+for (i=0; i<8; i++) { 
+    let tag = tags[i];
+    console.log(tag)
+
+let oneTag = document.querySelector(".one-tag");
+let cont = document.createElement("div");
+cont.classList.add("tag-cont")
+cont.style.backgroundColor = `${tag.color}`;
+oneTag.appendChild(cont)
+
+let image = document.createElement("img");
+    image.setAttribute("src", tag.pic);
+    image.classList.add("tag-pic");
+    cont.appendChild(image);
+
+let tagTitle = document.createElement("h3");
+    tagTitle.classList.add("tag-title");
+    tagTitle.textContent=tag.title;
+    cont.appendChild(tagTitle);
+
+let tagPosts = document.createElement("p")
+    tagPosts.classList.add("tag-text")
+    tagPosts.textContent=tag.posts;
+    cont.appendChild(tagPosts);
+}
+}
+showOneLine();
+
+function showAll() {
+    tags.forEach((tag) => {
 
 let oneTag = document.querySelector(".one-tag");
 let cont = document.createElement("div");
@@ -146,6 +176,10 @@ let tagPosts = document.createElement("p")
     cont.appendChild(tagPosts);
 
 })
+}
+
+let tagTitle = document.querySelector(".more");
+tagTitle.addEventListener("click", showAll);
 
 
 
