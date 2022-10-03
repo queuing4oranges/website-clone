@@ -1,3 +1,5 @@
+
+//set up mock data
 const tags = [
     {
         id: "1", 
@@ -111,18 +113,9 @@ const tags = [
         posts: "23243434 Posts", 
         color: "#633875"
     },
-    // {
-    //     id: "17", 
-    //     title: "Uplifting",
-    //     pic: "./images/papercat.png",
-    //     posts: "2324234 Posts", 
-    //     color: "#d4005e"
-    // },
-
-
 ]
 
-
+//display tags in DOM
 tags.forEach((tag) => {
 
 let oneTag = document.querySelector(".one-tag");
@@ -148,25 +141,86 @@ let tagPosts = document.createElement("p")
 
 })
 
-let moreTags = document.querySelector(".more");
+let moreTags = document.getElementById("more");
 moreTags.addEventListener("click", allVisible);
 
 function allVisible(){
     let container = document.querySelector(".tags__container");
     container.classList.toggle("show");
-
 }
 
+//import secret key to hide from github
+import config from "./config"
+var mykey1 = config.SECRET_KEY_1;
+
+//get random quote for h2 hero-title
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': mykey1,
+		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
+	},
+	body: '{"topic":"motivation"}'
+};
+
+//add quote as title to the DOM
+function fetchData() {
+fetch('https://pquotes.p.rapidapi.com/api/quote', options)
+	.then(response => {
+        return response.json();
+    })
+	.then(data => {
+        appendData(data)
+        console.log(data)
+        console.log(data.by)
+    });
+
+    function appendData(data) {
+        var heroTitle = document.getElementById("hero");
+        for (var i=0; i<2; i++) {
+            heroTitle.innerHTML = data.quote;
+        }
+    }
+}
+
+fetchData();
 
 
-// }
 
-// let tagTitle = document.querySelector(".more");
-// tagTitle.addEventListener("click", showAll);
+var mykey2 = config.SECRETE_KEY_2
 
+//get random media
+const options2 = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': mykey2,
+		'X-RapidAPI-Host': 'mlemapi.p.rapidapi.com'
+	}
+};
 
+function fetchPics() {
+fetch('https://mlemapi.p.rapidapi.com/randommlem', options2)
+	.then(response => {
+         return response.json()
+    })
+	.then(data => {
+        appendPic(data)
+        console.log(data)
+        console.log(data.url)
 
+        })
+	.catch(err => console.error(err));
 
+    function appendPic(data) {
+    let imageContainer = document.getElementById("memes__container");
+    let image = document.createElement("img");
+    image.setAttribute("src", data.url);
 
+    console.log(data.url);
+    imageContainer.appendChild(image);
+    }
+}
 
+fetchPics();
 
