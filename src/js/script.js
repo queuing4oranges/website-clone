@@ -187,40 +187,79 @@ fetch('https://pquotes.p.rapidapi.com/api/quote', options)
 fetchData();
 
 
-
-var mykey2 = config.SECRETE_KEY_2
-
 //get random media
 const options2 = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': mykey2,
-		'X-RapidAPI-Host': 'mlemapi.p.rapidapi.com'
+		'X-RapidAPI-Key': '87ef4bdfadmsha19117f7e173882p147106jsn5879fee115bd',
+		'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
 	}
 };
 
-function fetchPics() {
-fetch('https://mlemapi.p.rapidapi.com/randommlem', options2)
+function fetchPics(i) {
+fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=series', options2)
 	.then(response => {
          return response.json()
     })
 	.then(data => {
-        appendPic(data)
-        console.log(data)
-        console.log(data.url)
+        let results = data.results
+        // console.log(data)
+        // console.log(Object.keys(data.results[0]))
+        // console.log(data.results[1]['countries'][0]['name'])
+        appendPic(results)
 
         })
 	.catch(err => console.error(err));
 
-    function appendPic(data) {
-    let imageContainer = document.getElementById("memes__container");
-    let image = document.createElement("img");
-    image.setAttribute("src", data.url);
+    let cardsContainer = document.getElementById("cards__container");
 
-    console.log(data.url);
-    imageContainer.appendChild(image);
+    function appendPic(results) {
+        results.forEach((result) => {
+            let card = document.createElement("div")
+            card.classList.add("card")
+            cardsContainer.appendChild(card);
+
+            let image = document.createElement("img")
+            image.classList.add("card-image")
+            image.setAttribute("src", result['image'])
+            card.appendChild(image);
+
+            let cardCaption = document.createElement("div")
+            cardCaption.classList.add("card-caption")
+            card.appendChild(cardCaption)
+
+            let info = document.createElement("h5")
+            info.classList.add("card-title")
+            info.textContent = result['title']
+            cardCaption.appendChild(info)
+
+
+            let rating = document.createElement("div")
+            rating.classList.add("card-rating")
+            cardCaption.appendChild(rating)
+
+            let review = document.createElement("p")
+            review.classList.add("card-review")
+            review.textContent = result['rating']
+            rating.appendChild(review)
+
+            let index = document.createElement("p")
+            index.classList.add("card-index")
+            index.textContent = result['index']
+            rating.appendChild(index)
+
+            let year = document.createElement("p")
+            year.classList.add("card-year")
+            year.textContent = result['year']
+            rating.appendChild(year)        
+
+        })
     }
 }
 
-fetchPics();
+
+for (let i=0; i<6; i++) {
+    fetchPics();
+}
+
 
