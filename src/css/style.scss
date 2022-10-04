@@ -173,6 +173,14 @@ header {
   color: #9190a6;
 }
 
+.hide-title {
+  display: none;
+}
+
+.show-title {
+  display: block;
+}
+
 .show {
   width: 90%;
   overflow: visible;
@@ -242,19 +250,19 @@ header {
 .cards__container {
   display: flex;
   flex-wrap: wrap;
-  width: 1100px;
+  width: 1000px;
   margin: auto;
   justify-content: space-evenly;
 }
 .card {
-  width: 250px;
+  width: 230px;
   background-color: #67686f;
   margin: 10px;
   border-radius: 3px;
   object-fit: scale-down;
 }
 .card-image {
-  width: 250px;
+  width: 230px;
   height: 250px;
   overflow: hidden;
   border-top-right-radius: 3px;
@@ -281,3 +289,23 @@ header {
   font-weight: 600;
   font-size: 0.75em;
 }
+
+.card-review::before {
+  content: "\021E7";
+  width: 20px;
+  margin: 0 5px;
+}
+.card-review::before:hover {
+  color: yellow;
+}
+.card-review::after {
+  content: "\021E9 ";
+  margin: 0 5px;
+}
+
+/*
+down: U+1F44E 
+up: U+1F44D
+ballon:U+1F4AC
+eye: U+1F441
+*/

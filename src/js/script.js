@@ -141,50 +141,59 @@ let tagPosts = document.createElement("p")
 
 })
 
-let moreTags = document.getElementById("more");
+let moreTags = document.getElementById("more-less");
 moreTags.addEventListener("click", allVisible);
+let title = document.getElementById("more");
+title.innerHTML= "MORE TAGS +"
 
 function allVisible(){
     let container = document.querySelector(".tags__container");
     container.classList.toggle("show");
-}
+    if (container.classList.contains("show")){
+        let title = document.getElementById("more")
+        title.innerHTML = "LESS TAGS -"
+     } else {
+        title.innerHTML = "MORE TAGS +"
+        }
+
+    }
 
 //import secret key to hide from github
 import config from "./config"
 var mykey1 = config.SECRET_KEY_1;
 
-//get random quote for h2 hero-title
-const options = {
-	method: 'POST',
-	headers: {
-		'content-type': 'application/json',
-		'X-RapidAPI-Key': mykey1,
-		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
-	},
-	body: '{"topic":"motivation"}'
-};
+// //get random quote for h2 hero-title
+// const options = {
+// 	method: 'POST',
+// 	headers: {
+// 		'content-type': 'application/json',
+// 		'X-RapidAPI-Key': mykey1,
+// 		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
+// 	},
+// 	body: '{"topic":"motivation"}'
+// };
 
 //add quote as title to the DOM
-function fetchData() {
-fetch('https://pquotes.p.rapidapi.com/api/quote', options)
-	.then(response => {
-        return response.json();
-    })
-	.then(data => {
-        appendData(data)
-        console.log(data)
-        console.log(data.by)
-    });
+// function fetchData() {
+// fetch('https://pquotes.p.rapidapi.com/api/quote', options)
+// 	.then(response => {
+//         return response.json();
+//     })
+// 	.then(data => {
+//         appendData(data)
+//         console.log(data)
+//         console.log(data.by)
+//     });
 
-    function appendData(data) {
-        var heroTitle = document.getElementById("hero");
-        for (var i=0; i<2; i++) {
-            heroTitle.innerHTML = data.quote;
-        }
-    }
-}
+//     function appendData(data) {
+//         var heroTitle = document.getElementById("hero");
+//         for (var i=0; i<2; i++) {
+//             heroTitle.innerHTML = data.quote;
+//         }
+//     }
+// }
 
-fetchData();
+// fetchData();
 
 
 //get random media
@@ -196,7 +205,7 @@ const options2 = {
 	}
 };
 
-function fetchPics(i) {
+function fetchPics() {
 fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=series', options2)
 	.then(response => {
          return response.json()
