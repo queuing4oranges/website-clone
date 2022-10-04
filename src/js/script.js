@@ -195,26 +195,35 @@ var mykey1 = config.SECRET_KEY_1;
 
 // fetchData();
 
-
+//########################## MEDIA API #########################
 //get random media
-const options2 = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '87ef4bdfadmsha19117f7e173882p147106jsn5879fee115bd',
-		'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
-	}
-};
+// const options2 = {
+// 	method: 'GET',
+// 	headers: {
+// 		'X-RapidAPI-Key': '87ef4bdfadmsha19117f7e173882p147106jsn5879fee115bd',
+// 		'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
+// 	}
+// };
 
 function fetchPics() {
-fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=series', options2)
+fetch('https://api.imgflip.com/get_memes')
 	.then(response => {
          return response.json()
     })
 	.then(data => {
-        let results = data.results
-        // console.log(data)
-        // console.log(Object.keys(data.results[0]))
-        // console.log(data.results[1]['countries'][0]['name'])
+        console.log("data")
+         console.log(data)
+         console.log("data.data['memes']")
+         console.log(data.data['memes'])
+         let results = data.data['memes']
+         console.log("let results")
+         console.log(results)
+         console.log("results[0]")
+         console.log(results[0])
+         console.log("results[0].name")
+         console.log(results[0].name)
+         console.log(results[0].url)
+
         appendPic(results)
 
         })
@@ -230,7 +239,7 @@ fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=serie
 
             let image = document.createElement("img")
             image.classList.add("card-image")
-            image.setAttribute("src", result['image'])
+            image.setAttribute("src", result['url'])
             card.appendChild(image);
 
             let cardCaption = document.createElement("div")
@@ -239,7 +248,7 @@ fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=serie
 
             let info = document.createElement("h5")
             info.classList.add("card-title")
-            info.textContent = result['title']
+            info.textContent = result['name']
             cardCaption.appendChild(info)
 
 
@@ -249,17 +258,17 @@ fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=serie
 
             let review = document.createElement("p")
             review.classList.add("card-review")
-            review.textContent = result['rating']
+            review.textContent = result['box_count']
             rating.appendChild(review)
 
             let index = document.createElement("p")
             index.classList.add("card-index")
-            index.textContent = result['index']
+            index.textContent = result['id']
             rating.appendChild(index)
 
             let year = document.createElement("p")
             year.classList.add("card-year")
-            year.textContent = result['year']
+            year.textContent = result['height']
             rating.appendChild(year)        
 
         })
@@ -267,7 +276,7 @@ fetch('https://movies-app1.p.rapidapi.com/api/movies?page=10&limit=10&type=serie
 }
 
 
-for (let i=0; i<6; i++) {
+for (let i=0; i<2; i++) {
     fetchPics();
 }
 
