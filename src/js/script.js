@@ -149,12 +149,15 @@ title.innerHTML= "MORE TAGS +"
 
 function allVisible(){
     let container = document.querySelector(".tags__container");
+    let heroContainer = document.querySelector(".hero__container");
     container.classList.toggle("show");
     if (container.classList.contains("show")){
         let title = document.getElementById("more")
-        title.innerHTML = "LESS TAGS -"
+        title.innerHTML = "LESS TAGS -";
+        heroContainer.style.height = "700px"
      } else {
         title.innerHTML = "MORE TAGS +"
+        heroContainer.style.height = "500px"
         }
 
     }
