@@ -159,8 +159,8 @@ function allVisible(){
     }
 
 //import secret key to hide from github
-import config from "./config"
-var mykey1 = config.SECRET_KEY_1;
+// import config from "./config"
+// var mykey1 = config.SECRET_KEY_1;
 
 // //get random quote for h2 hero-title
 // const options = {
@@ -173,7 +173,7 @@ var mykey1 = config.SECRET_KEY_1;
 // 	body: '{"topic":"motivation"}'
 // };
 
-//add quote as title to the DOM
+// //add quote as title to the DOM
 // function fetchData() {
 // fetch('https://pquotes.p.rapidapi.com/api/quote', options)
 // 	.then(response => {
@@ -181,8 +181,6 @@ var mykey1 = config.SECRET_KEY_1;
 //     })
 // 	.then(data => {
 //         appendData(data)
-//         console.log(data)
-//         console.log(data.by)
 //     });
 
 //     function appendData(data) {
@@ -195,35 +193,13 @@ var mykey1 = config.SECRET_KEY_1;
 
 // fetchData();
 
-//########################## MEDIA API #########################
-//get random media
-// const options2 = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': '87ef4bdfadmsha19117f7e173882p147106jsn5879fee115bd',
-// 		'X-RapidAPI-Host': 'movies-app1.p.rapidapi.com'
-// 	}
-// };
-
 function fetchPics() {
 fetch('https://api.imgflip.com/get_memes')
 	.then(response => {
          return response.json()
     })
 	.then(data => {
-        console.log("data")
-         console.log(data)
-         console.log("data.data['memes']")
-         console.log(data.data['memes'])
-         let results = data.data['memes']
-         console.log("let results")
-         console.log(results)
-         console.log("results[0]")
-         console.log(results[0])
-         console.log("results[0].name")
-         console.log(results[0].name)
-         console.log(results[0].url)
-
+        let results = data.data['memes']
         appendPic(results)
 
         })
@@ -267,7 +243,7 @@ fetch('https://api.imgflip.com/get_memes')
             rating.appendChild(index)
 
             let year = document.createElement("p")
-            year.classList.add("card-year")
+            year.classList.add("card-comments")
             year.textContent = result['height']
             rating.appendChild(year)        
 
@@ -275,9 +251,22 @@ fetch('https://api.imgflip.com/get_memes')
     }
 }
 
-
-for (let i=0; i<2; i++) {
+for (let i=0; i<=1; i++) {
     fetchPics();
 }
 
+//make scrollable footer
+let scrollPos = 0;
+const footer = document.getElementById("footer__container");
+
+function stickyFooter() {
+    let windowY = window.scrollY;
+    if (windowY < scrollPos) {
+        footer.classList.add("sticky")
+    } else {
+        footer.classList.remove("sticky")
+    }
+    scrollPos = windowY;
+}
+ window.addEventListener("scroll", stickyFooter);
 
