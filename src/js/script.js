@@ -163,38 +163,38 @@ function allVisible(){
     }
 
 //import secret key to hide from github
-// import config from "./config"
-// var mykey1 = config.SECRET_KEY_1;
+//import config from "./config"
+var mykey1 = config.SECRET_KEY_1;
 
-// //get random quote for h2 hero-title
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'content-type': 'application/json',
-// 		'X-RapidAPI-Key': mykey1,
-// 		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
-// 	},
-// 	body: '{"topic":"motivation"}'
-// };
+//get random quote for h2 hero-title
+const options = {
+	method: 'POST',
+	headers: {
+		'content-type': 'application/json',
+		'X-RapidAPI-Key': mykey1,
+		'X-RapidAPI-Host': 'pquotes.p.rapidapi.com'
+	},
+	body: '{"topic":"motivation"}'
+};
 
-// //add quote as title to the DOM
-// function fetchData() {
-// fetch('https://pquotes.p.rapidapi.com/api/quote', options)
-// 	.then(response => {
-//         return response.json();
-//     })
-// 	.then(data => {
-//         appendData(data)
-//     });
+//add quote as title to the DOM
+function fetchData() {
+fetch('https://pquotes.p.rapidapi.com/api/quote', options)
+	.then(response => {
+        return response.json();
+    })
+	.then(data => {
+        appendData(data)
+    });
 
-//     function appendData(data) {
-//         var heroTitle = document.getElementById("hero");
-//         for (var i=0; i<2; i++) {
-//             heroTitle.innerHTML = data.quote;
-//         }
-//     }
-// }
-// fetchData();
+    function appendData(data) {
+        var heroTitle = document.getElementById("hero");
+        for (var i=0; i<2; i++) {
+            heroTitle.innerHTML = data.quote;
+        }
+    }
+}
+fetchData();
 
 //displaying memes in DOM
 function fetchPics() {
