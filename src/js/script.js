@@ -154,16 +154,16 @@ function allVisible(){
     if (container.classList.contains("show")){
         let title = document.getElementById("more")
         title.innerHTML = "LESS TAGS -";
-        heroContainer.style.height = "700px"
+        heroContainer.style.height = "800px"
      } else {
         title.innerHTML = "MORE TAGS +"
-        heroContainer.style.height = "500px"
+        heroContainer.style.height = "600px"
         }
 
     }
 
 //import secret key to hide from github
-//import config from "./config"
+import config from "./config"
 var mykey1 = config.SECRET_KEY_1;
 
 //get random quote for h2 hero-title
@@ -255,7 +255,7 @@ fetch('https://api.imgflip.com/get_memes')
     }
 }
 
-for (let i=0; i<=1; i++) {
+for (let i=0; i<=2; i++) {
     fetchPics();
 }
 
