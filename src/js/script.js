@@ -141,6 +141,7 @@ let tagPosts = document.createElement("p")
 
 })
 
+//show more/less tags
 let moreTags = document.getElementById("more-less");
 moreTags.addEventListener("click", allVisible);
 let title = document.getElementById("more");
@@ -190,9 +191,9 @@ function allVisible(){
 //         }
 //     }
 // }
-
 // fetchData();
 
+//displaying memes in DOM
 function fetchPics() {
 fetch('https://api.imgflip.com/get_memes')
 	.then(response => {
@@ -269,4 +270,6 @@ function stickyFooter() {
     scrollPos = windowY;
 }
  window.addEventListener("scroll", stickyFooter);
+
+
 

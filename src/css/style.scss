@@ -1,6 +1,13 @@
+/*naming conventions: BEM
+B-block: stick-man
+E-element: stick-man__head
+M-modifier: stick-man__head-green
+*/
+
 $green-button: #31be7c;
 $text-color: #898a93;
-
+$bg-color: #2e3035;
+/*HTML*/
 html {
   box-sizing: border-box;
 }
@@ -11,17 +18,11 @@ html {
 }
 
 body {
-  background-color: #2e3035;
+  background-color: $bg-color;
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif, Arial, Helvetica, sans-serif;
 }
-
-/*naming conventions: BEM
-B-block: stick-man
-E-element: stick-man__head
-M-modifier: stick-man__head-green
-*/
 
 /*header*/
 header {
@@ -215,9 +216,15 @@ header {
   font-size: 14px;
   font-weight: bold;
   position: relative;
-  bottom: 5px;
+  bottom: 10px;
   margin: 0;
   padding: 0;
+}
+
+.tag-title {
+  color: white;
+  padding: 5px;
+  text-align: center;
 }
 
 .one-tag {
@@ -226,6 +233,11 @@ header {
   grid-template-rows: repeat(2, 1fr);
   grid-column-gap: 10px;
   grid-row-gap: 10px;
+}
+
+.tag-cont:hover {
+  position: relative;
+  top: -5px;
 }
 
 .tag-cont {
@@ -256,7 +268,6 @@ header {
   width: 1000px;
   margin: 20px auto 70px;
   justify-content: space-evenly;
-  position: relative;
 }
 
 .card {
@@ -326,7 +337,7 @@ header {
   font-size: 1.17em;
   font-weight: bold;
   color: $text-color;
-  background-color: #2e3035;
+  background-color: $bg-color;
   text-align: start;
 }
 
@@ -354,16 +365,6 @@ li {
 li h3 {
   margin: 10px 0;
 }
-
-// h3 {
-//     display: block;
-//     font-size: 1.17em;
-//     margin-block-start: 1em;
-//     margin-block-end: 1em;
-//     margin-inline-start: 0px;
-//     margin-inline-end: 0px;
-//     font-weight: bold;
-// }
 
 /*footer*/
 .dot {
