@@ -1,7 +1,12 @@
 # brilo.team-test
 
-frontend stack for design of webpage
+frontend design of webpage clone
 
-## HTML / SCSS
+### SCSS
 
-## JS
+naming system BEM
+
+### Instructions how to run and use:
+
+run with 'gulp watch'
+build with 'gulp build'
